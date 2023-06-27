@@ -25,28 +25,28 @@ public class Cimri implements Platform{
         String fileName = name + ".json";
 
         try (FileWriter fileWriter = new FileWriter(fileName)) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("[\n");
+            StringBuilder xy = new StringBuilder();
+            xy.append("[\n");
 
             for (int i = 0; i < products.size(); i++) {
                 Product product = products.get(i);
-                sb.append("    {\n");
-                sb.append("        \"id\": ").append(product.getId()).append(",\n");
-                sb.append("        \"name\": \"").append(product.getName()).append("\",\n");
-                sb.append("        \"price\": ").append(product.getPrice()).append(",\n");
-                sb.append("        \"category\": \"").append(product.getCategory()).append("\"\n");
-                sb.append("    }");
+                xy.append("    {\n");
+                xy.append("        \"id\": ").append(product.getId()).append(",\n");
+                xy.append("        \"name\": \"").append(product.getName()).append("\",\n");
+                xy.append("        \"price\": ").append(product.getPrice()).append(",\n");
+                xy.append("        \"category\": \"").append(product.getCategory()).append("\"\n");
+                xy.append("    }");
 
                 if (i != products.size() - 1) {
-                    sb.append(",");
+                    xy.append(",");
                 }
 
-                sb.append("\n");
+                xy.append("\n");
             }
 
-            sb.append("]\n");
+            xy.append("]\n");
 
-            fileWriter.write(sb.toString());
+            fileWriter.write(xy.toString());
             System.out.println("Generated JSON file: " + fileName);
         } catch (IOException e) {
             e.printStackTrace();
